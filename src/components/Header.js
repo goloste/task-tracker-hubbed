@@ -1,16 +1,12 @@
 import React from 'react'
 import Button from './Button'
 
-const onClick = () => {
-  console.log('Click')
-} 
-
-function Header() {
+function Header({onAdd}) {
   return (
     <header className='header'>
       <h1>Task Tracker</h1>
-      <Button text='Green' color='green' onClick={onClick} />
-      <Button text='yellow' color='yellow' textColor='black'/>
+      {/* <Button text='Green' color='green' onClick={onClick} /> */}
+      <Button text='Add Task' color='yellow' textColor='black' onClick={onAdd}/>
     </header>
   )
 }

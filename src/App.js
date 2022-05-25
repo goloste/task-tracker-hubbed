@@ -2,9 +2,13 @@
 import './App.css';
 import Header from './components/Header';
 import TasksStateful from './components/TasksStateful'
+import AddTask from './components/AddTask';
 import { useState } from 'react';
 
 const App = () => {
+
+  const [showAddTask, setShowAddTask] = useState(false)
+
   const [tasks, setTasks] = useState([
     {
         id: 1,
@@ -26,6 +30,13 @@ const App = () => {
     }
   ])
   
+  // Add Task
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 1000 + 1)
+    const newTask = {id, ...task}
+    setTasks([...tasks, newTask])
+  } 
+
   // Delete Task
   const onDelete = (id) => {
     console.log('delete', id)
@@ -41,7 +52,8 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header />
+      <Header onAdd={() => setShowAddTask(!showAddTask)}/>
+      {showAddTask && <AddTask onAdd={addTask}/>}
       {tasks.length > 0 ? 
       <TasksStateful tasks={tasks} 
       onDelete={onDelete} 

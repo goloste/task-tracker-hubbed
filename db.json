@@ -1,10 +1,22 @@
 {
   "tasks": [
     {
-      "text": "ciao",
-      "day": "miao",
+      "text": "nuovo task",
+      "day": "31 Luglio 1922 alle 17:00",
       "reminder": true,
-      "id": 1
+      "id": 2
+    },
+    {
+      "text": "ciao",
+      "day": "boh",
+      "reminder": true,
+      "id": 3
+    },
+    {
+      "text": "vaso canopo",
+      "day": "alla morte del faraone",
+      "reminder": true,
+      "id": 4
     }
   ]
 }

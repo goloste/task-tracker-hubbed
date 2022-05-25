@@ -3,6 +3,9 @@ import './App.css';
 import Header from './components/Header';
 import TasksStateful from './components/TasksStateful'
 import AddTask from './components/AddTask';
+import Footer from './components/Footer';
+import About from './components/About';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import { useState, useEffect } from 'react';
 
 const App = () => {
@@ -100,15 +103,21 @@ const App = () => {
   }
 
   return (
-    <div className="container">
-      <Header onAdd={() => setShowAddTask(!showAddTask)}
-      showAdd={showAddTask}/>
-      {showAddTask && <AddTask onAdd={addTask}/>}
-      {tasks.length > 0 ? 
-      <TasksStateful tasks={tasks} 
-      onDelete={onDelete} 
-      onToggle={toggleReminder}/> : 'No Tasks To Show'}
-    </div>
+    <Router>
+      <div className="container">
+        <Header onAdd={() => setShowAddTask(!showAddTask)}
+        showAdd={showAddTask}/>
+        {showAddTask && <AddTask onAdd={addTask}/>}
+        {tasks.length > 0 ? 
+        <TasksStateful tasks={tasks} 
+        onDelete={onDelete} 
+        onToggle={toggleReminder}/> : 'No Tasks To Show'}
+        <Routes>
+          <Route path='/about' element={<About/>}/>
+        </Routes>
+        <Footer/>
+      </div>
+    </Router>
   );
 }
 

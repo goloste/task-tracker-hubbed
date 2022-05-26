@@ -1,0 +1,7 @@
+# Files
+Dockerfile
+.dockerignore
+.gitignore
+
+# Artifacts produced when building
+node_modules

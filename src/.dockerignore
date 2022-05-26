@@ -2,6 +2,7 @@
 Dockerfile
 .dockerignore
 .gitignore
+db.json
 
 # Artifacts produced when building
 node_modules
